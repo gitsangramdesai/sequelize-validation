@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var employeesRouter = require('./routes/emp');
+var groupsRouter = require('./routes/group');
 
 var app = express();
 
@@ -26,6 +27,8 @@ app.use(session({secret: "Shh, its a secret!"}));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/emp', employeesRouter);
+app.use('/group', groupsRouter);
+
 
 
 

@@ -31,6 +31,7 @@ docker inspect --format='' 849a854d03c3
  mysql -h 127.0.0.1 -P 3308 -u root -p AppDb
  mysql -h 127.0.0.1 -P 3308 --protocol=tcp -u root
 
+SET FOREIGN_KEY_CHECKS=0;
 
 docker volume ls
 docker volume rm apistack001_db-data

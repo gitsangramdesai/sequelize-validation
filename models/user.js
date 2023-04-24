@@ -1,6 +1,7 @@
 const sequelize = require('../utils/database')
 const bcrypt = require("bcrypt");
 var moment = require('moment')
+const models = require('../models')
 
 module.exports = function (sequelize, DataTypes) {
     const User = sequelize.define('User', {
@@ -115,6 +116,14 @@ module.exports = function (sequelize, DataTypes) {
             }
         }
     });
+
+    User.associate = (models) => {
+        User.belongsToMany(models.AppGroup, {
+            through: 'GroupUser',
+            as: 'Group',
+            foreignKey: 'UserId'
+        });
+    };
 
     //this.work on instance
     User.prototype.getFullName = function () {
