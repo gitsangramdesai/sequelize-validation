@@ -1,6 +1,5 @@
 const sequelize = require('../utils/database')
-
-
+const models = require('../models')
 
 module.exports = function (sequelize, DataTypes) {
     const Employee = sequelize.define('Employee', {
@@ -37,6 +36,11 @@ module.exports = function (sequelize, DataTypes) {
     }, {
         freezeTableName: true
     });
+
+    Employee.associate = function (models) {
+        models.Employee.belongsTo(models.Dept, { as: 'Department', foreignKey: 'empDeptId' });
+        models.Dept.hasMany(models.Employee, { as: 'Employee', foreignKey: 'empDeptId' });
+    };
 
     return Employee;
 }   

@@ -20,8 +20,8 @@ Object.keys(db).forEach(modelName => {
     }
 });
 
-db.Employee.belongsTo(db.Dept, { as: 'Department', foreignKey: 'empDeptId' });
-db.Dept.hasMany(db.Employee, { as: 'Employee', foreignKey: 'empDeptId' });
+// db.Employee.belongsTo(db.Dept, { as: 'Department', foreignKey: 'empDeptId' });
+// db.Dept.hasMany(db.Employee, { as: 'Employee', foreignKey: 'empDeptId' });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
