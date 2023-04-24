@@ -1,1 +1,1 @@
-# passport.js.jwt
+# Sequelize Model Validation
